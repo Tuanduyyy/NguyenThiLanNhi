@@ -10,11 +10,8 @@ import {
   Target, 
   CheckCircle, 
   ChevronUp, 
-  Download, 
-  Printer, 
   ChevronRight, 
   Check, 
-  FileText, 
   User, 
   ClipboardList, 
   ArrowRight,
@@ -86,10 +83,6 @@ export default function App() {
     setTimeout(() => setIsCopied(false), 3000);
   };
 
-  const handlePrint = () => {
-    window.print();
-  };
-
   return (
     <div className="min-h-screen bg-cream-bg text-gray-800 font-sans selection:bg-rose-100 selection:text-pink-800 antialiased relative overflow-x-clip">
       
@@ -131,14 +124,6 @@ export default function App() {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <button 
-              onClick={handlePrint}
-              aria-label="Print portfolio checklist"
-              className="text-xs tracking-wider flex items-center gap-2 text-pink-700 bg-pink-50 hover:bg-pink-100 rounded-full px-4 py-2 border border-pink-200 transition-all font-sans font-medium"
-            >
-              <Printer size={13} />
-              Print Portfolio
-            </button>
             <button 
               onClick={handleCopyLink}
               className="text-xs tracking-wider flex items-center gap-2 text-[#4A3538] bg-white hover:bg-pink-50/50 rounded-full px-4 py-2 border border-pink-100 shadow-sm transition-all font-sans font-medium hover:border-pink-300"
@@ -316,37 +301,15 @@ export default function App() {
             </button>
           </div>
 
-          {/* Quick Download Buttons & Mobile Menu Trigger */}
-          <div className="flex items-center gap-2">
-            {/* Desktop-only download button */}
-            <a 
-              href="/Nhi_Nguyen_Portfolio.docx"
-              download="Nhi_Nguyen_Portfolio.docx"
-              className="hidden lg:flex text-xs bg-pink-600 hover:bg-pink-700 text-white py-1.5 px-4 rounded-full items-center gap-1.5 font-medium transition-all shadow-sm shadow-pink-200 font-sans"
+          {/* Mobile Menu Trigger */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-1.5 text-pink-750 text-pink-700 bg-pink-50 hover:bg-pink-100 rounded-full border border-pink-200/60 transition-all flex items-center justify-center"
+              aria-label="Toggle navigation menu"
             >
-              <Download size={13} />
-              <span>Download Docx</span>
-            </a>
-
-            {/* Mobile Actions Overlay */}
-            <div className="flex items-center gap-1.5 lg:hidden">
-              <a 
-                href="/Nhi_Nguyen_Portfolio.docx"
-                download="Nhi_Nguyen_Portfolio.docx"
-                className="text-xs bg-pink-600 hover:bg-pink-700 text-white py-1.5 px-3 rounded-full flex items-center gap-1 font-medium transition-all shadow-sm shadow-pink-200 font-sans"
-              >
-                <Download size={11} />
-                <span className="text-[10px] sm:text-xs">Docx</span>
-              </a>
-
-              <button 
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-1.5 text-pink-750 text-pink-700 bg-pink-50 hover:bg-pink-100 rounded-full border border-pink-200/60 transition-all flex items-center justify-center"
-                aria-label="Toggle navigation menu"
-              >
-                {mobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
-              </button>
-            </div>
+              {mobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
+            </button>
           </div>
           
         </div>
@@ -899,7 +862,7 @@ export default function App() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start border-b border-pink-100 pb-10">
             
             {/* Left Brand Col */}
-            <div className="md:col-span-5 space-y-4">
+            <div className="md:col-span-7 space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center border border-pink-200 text-pink-700 font-cinzel font-semibold shadow-xs">
                   NL
@@ -919,7 +882,7 @@ export default function App() {
             </div>
 
             {/* Middle Nav Directory */}
-            <div className="md:col-span-3 space-y-3">
+            <div className="md:col-span-5 space-y-3">
               <h4 className="text-xs font-semibold uppercase tracking-wider text-[#4A3538]">Site map Directory</h4>
               <ul className="space-y-2 text-xs font-medium font-sans">
                 <li>
@@ -938,42 +901,6 @@ export default function App() {
                   <button onClick={() => scrollToSection("reflection")} className="text-stone-500 hover:text-pink-600 transition-colors">4. Reflection</button>
                 </li>
               </ul>
-            </div>
-
-            {/* Right Resource Column */}
-            <div className="md:col-span-4 space-y-4">
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-[#4A3538]">Portfolio Raw Assets</h4>
-              <p className="text-xs text-stone-500 leading-relaxed text-justify">
-                To link actual document files, replace the anchors below in your codebase with correct relative links to files hosted inside your assets/public folder.
-              </p>
-              
-              <div className="flex flex-col gap-2 font-sans text-xs">
-                {/* DOCX download link */}
-                <a 
-                  href="/Nhi_Nguyen_Portfolio.docx" 
-                  download="Nhi_Nguyen_Portfolio.docx"
-                  className="p-3 bg-white hover:bg-pink-50 border border-pink-100 rounded-xl flex items-center justify-between font-medium text-[#4A3538] transition-all"
-                >
-                  <span className="flex items-center gap-2">
-                    <FileText size={15} className="text-pink-600" />
-                    Nhi_Nguyen_Portfolio.docx
-                  </span>
-                  <Download size={13} className="text-stone-400" />
-                </a>
-
-                {/* PDF download link */}
-                <a 
-                  href="/Nhi_Nguyen_Portfolio.pdf" 
-                  download="Nhi_Nguyen_Portfolio.pdf"
-                  className="p-3 bg-white hover:bg-pink-50 border border-pink-100 rounded-xl flex items-center justify-between font-medium text-[#4A3538] transition-all"
-                >
-                  <span className="flex items-center gap-2">
-                    <CheckCircle size={15} className="text-pink-600" />
-                    Nhi_Nguyen_Portfolio.pdf
-                  </span>
-                  <Download size={13} className="text-stone-400" />
-                </a>
-              </div>
             </div>
 
           </div>
