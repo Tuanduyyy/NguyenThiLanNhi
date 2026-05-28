@@ -520,7 +520,7 @@ export default function App() {
                 <div className="absolute top-0 right-0 w-24 h-24 bg-pink-100/10 rounded-bl-full -z-0" />
                 
                 <h3 className="font-serif text-2xl text-[#4A3538] font-semibold leading-snug mb-5">
-                  1.2. Goal for Development
+                  1.2. Goals for Development
                 </h3>
 
                 <div className="text-[#4E3E41] leading-relaxed space-y-5 text-sm sm:text-base font-light">
@@ -691,12 +691,11 @@ export default function App() {
               
               <div className="bg-white rounded-3xl p-6 border border-pink-100 shadow-sm space-y-4">
                 <span className="inline-block text-[10px] uppercase font-mono tracking-wider bg-pink-150 text-pink-700 bg-pink-50 px-3 py-1 rounded-full border border-pink-200/50">
-                  Featured Facilitator
+                  PRACTICAL ACTIVITIES FOR EFL CLASS
                 </span>
                 
                 <div className="space-y-1">
-                  <h4 className="font-serif text-lg font-bold text-[#4A3538]">Dr. Vo Thi Nu Anh</h4>
-                  <p className="text-xs text-stone-500 leading-relaxed">Exemplified strong professionalism & clinical classroom instructional design methodologies.</p>
+                  <h4 className="font-serif text-lg font-bold text-[#4A3538]">Host: Dr. Vo Thi Nu Anh</h4>
                 </div>
 
                 <div className="w-full h-[1px] bg-pink-100" />
@@ -869,9 +868,6 @@ export default function App() {
                   <span className="text-[10px] uppercase tracking-widest text-[#C29B9F] font-mono block">English Language Educator</span>
                 </div>
               </div>
-              <p className="text-xs text-[#7B6165] leading-relaxed max-w-sm text-justify">
-                Graduating English teacher committed to robust pedagogy, exam-oriented secondary success, long-term educator well-being, and the logical design of academic courses.
-              </p>
               <div className="bg-[#FFF8F9] rounded-2xl p-4 border border-pink-10s border-pink-100 inline-block pointer-events-none">
                 <p className="text-[11px] text-[#4A3538] font-medium leading-none">Philosophy Reflection Target:</p>
                 <p className="font-serif italic text-sm text-pink-700 mt-1">"Ensuring understanding for all."</p>
