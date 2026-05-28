@@ -373,11 +373,8 @@ export default function App() {
           <div className="flex items-center gap-2">
             {/* Desktop-only download button */}
             <a 
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                alert("File Download Link Placeholder: In a deployed production application, you would host your static docx/pdf files inside the public folder, enabling visitors to easily download the original essays.");
-              }}
+              href="/Nhi_Nguyen_Portfolio.docx"
+              download="Nhi_Nguyen_Portfolio.docx"
               className="hidden lg:flex text-xs bg-pink-600 hover:bg-pink-700 text-white py-1.5 px-4 rounded-full items-center gap-1.5 font-medium transition-all shadow-sm shadow-pink-200 font-sans"
             >
               <Download size={13} />
@@ -387,11 +384,8 @@ export default function App() {
             {/* Mobile Actions Overlay */}
             <div className="flex items-center gap-1.5 lg:hidden">
               <a 
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  alert("File Download Link Placeholder: In a deployed production application, you would host your static docx/pdf files inside the public folder, enabling visitors to easily download the original essays.");
-                }}
+                href="/Nhi_Nguyen_Portfolio.docx"
+                download="Nhi_Nguyen_Portfolio.docx"
                 className="text-xs bg-pink-600 hover:bg-pink-700 text-white py-1.5 px-3 rounded-full flex items-center gap-1 font-medium transition-all shadow-sm shadow-pink-200 font-sans"
               >
                 <Download size={11} />
@@ -1260,13 +1254,10 @@ export default function App() {
               </p>
               
               <div className="flex flex-col gap-2 font-sans text-xs">
-                {/* DOCX Comment download link */}
+                {/* DOCX download link */}
                 <a 
-                  href="#download-word" 
-                  onClick={(e) => {
-                    e.preventDefault();
-                    alert("DOCX asset path placeholder comment: please store the original MS Word portfolio document in your public server as `/assets/Nhi_Nguyen_Portfolio.docx` and link it here.");
-                  }}
+                  href="/Nhi_Nguyen_Portfolio.docx" 
+                  download="Nhi_Nguyen_Portfolio.docx"
                   className="p-3 bg-white hover:bg-pink-50 border border-pink-100 rounded-xl flex items-center justify-between font-medium text-[#4A3538] transition-all"
                 >
                   <span className="flex items-center gap-2">
@@ -1276,13 +1267,10 @@ export default function App() {
                   <Download size={13} className="text-stone-400" />
                 </a>
 
-                {/* PDF Comment download link */}
+                {/* PDF download link */}
                 <a 
-                  href="#download-pdf" 
-                  onClick={(e) => {
-                    e.preventDefault();
-                    alert("PDF asset path placeholder comment: please compile the portfolio content to Adobe PDF format and link it here.");
-                  }}
+                  href="/Nhi_Nguyen_Portfolio.pdf" 
+                  download="Nhi_Nguyen_Portfolio.pdf"
                   className="p-3 bg-white hover:bg-pink-50 border border-pink-100 rounded-xl flex items-center justify-between font-medium text-[#4A3538] transition-all"
                 >
                   <span className="flex items-center gap-2">
