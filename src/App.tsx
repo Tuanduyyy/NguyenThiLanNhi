@@ -25,10 +25,6 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
-// Types for the Interactive Questionnaire (Tab 5)
-interface CriteriaState {
-  [key: string]: "Yes" | "Partly" | "No" | null;
-}
 
 export default function App() {
   // Navigation active tab tracking based on scroll
@@ -37,26 +33,6 @@ export default function App() {
   const [isCopied, setIsCopied] = useState<boolean>(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState<boolean>(false);
 
-  // States for the interactive checklist (Tab 5)
-  const [observedTeacher, setObservedTeacher] = useState<string>("Dr. Vo Thi Nu Anh");
-  const [observedClass, setObservedClass] = useState<string>("Kid Class (Age 3-5)");
-  const [completedDate, setCompletedDate] = useState<string>("2026-05-28");
-  
-  const [classroomMgmt, setClassroomMgmt] = useState<CriteriaState>({
-    rules: "Yes",
-    effectiveness: "Yes",
-    attention: "Yes",
-    discipline: "Yes",
-    signals: "Yes",
-  });
-
-  const [studentEngage, setStudentEngage] = useState<CriteriaState>({
-    participate: "Yes",
-    interested: "Yes",
-    suitableAge: "Yes",
-    encourage: "Yes",
-    participateRepeat: "Yes", // Duplicated criteria from original text
-  });
 
   // Track scroll position to show back-to-top and highlight current menu item
   useEffect(() => {
@@ -70,8 +46,7 @@ export default function App() {
         "profile", 
         "development-process", 
         "workshop-evaluation", 
-        "reflection", 
-        "observation-tool"
+        "reflection"
       ];
       
       const scrollPos = window.scrollY + 200;
@@ -104,17 +79,6 @@ export default function App() {
     }
   };
 
-  const setCheckboxVal = (
-    category: "mgmt" | "engage", 
-    key: string, 
-    value: "Yes" | "Partly" | "No"
-  ) => {
-    if (category === "mgmt") {
-      setClassroomMgmt(prev => ({ ...prev, [key]: prev[key] === value ? null : value }));
-    } else {
-      setStudentEngage(prev => ({ ...prev, [key]: prev[key] === value ? null : value }));
-    }
-  };
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(window.location.href);
@@ -164,7 +128,6 @@ export default function App() {
             </div>
             <div>
               <span className="font-cinzel tracking-widest text-[#4A3538] font-bold text-base block">NGUYEN THI LAN NHI</span>
-              <span className="text-xs uppercase tracking-widest text-[#C29B9F] font-mono block">English Educator & IELTS Mentor</span>
             </div>
           </div>
           <div className="flex items-center gap-4">
@@ -228,13 +191,6 @@ export default function App() {
                 Explore Portfolio
                 <ArrowRight size={15} />
               </button>
-              <button 
-                onClick={() => scrollToSection("observation-tool")}
-                className="px-6 py-3 rounded-full bg-white hover:bg-pink-50 text-[#4A3538] border border-pink-200 font-medium text-sm tracking-wider flex items-center gap-2 shadow-sm hover:border-pink-300 transition-all"
-              >
-                Observation Form
-                <ClipboardList size={15} className="text-pink-600" />
-              </button>
             </div>
           </div>
 
@@ -282,9 +238,6 @@ export default function App() {
                   <h3 className="font-serif text-lg font-semibold text-[#4A3538] leading-tight text-center">
                     Nguyen Thi Lan Nhi
                   </h3>
-                  <p className="text-[11px] uppercase tracking-wider font-mono text-center text-pink-650/90 text-pink-700">
-                    Living the Teaching Dream
-                  </p>
                 </div>
               </div>
 
@@ -360,12 +313,6 @@ export default function App() {
               className={`px-3 py-1.5 rounded-full text-xs font-semibold font-sans tracking-wide transition-all ${activeSection === "reflection" ? "bg-pink-100 text-pink-700 font-bold border border-pink-200/50" : "text-[#7B6165] hover:text-pink-600 hover:bg-pink-50/50"}`}
             >
               4. Reflection
-            </button>
-            <button 
-              onClick={() => scrollToSection("observation-tool")}
-              className={`px-3 py-1.5 rounded-full text-xs font-semibold font-sans tracking-wide transition-all ${activeSection === "observation-tool" ? "bg-pink-100 text-pink-700 font-bold border border-pink-200/50" : "text-[#7B6165] hover:text-pink-600 hover:bg-pink-50/50"}`}
-            >
-              5. Classroom Observation Checklist
             </button>
           </div>
 
@@ -468,16 +415,6 @@ export default function App() {
                   className={`w-full text-left px-4 py-2.5 rounded-xl text-xs font-semibold tracking-wide transition-all ${activeSection === "reflection" ? "bg-pink-100 text-pink-700 font-bold border border-pink-200/50" : "text-[#7B6165] hover:text-pink-600 hover:bg-pink-50/50"}`}
                 >
                   4. Reflection
-                </button>
-                
-                <button 
-                  onClick={() => {
-                    scrollToSection("observation-tool");
-                    setMobileMenuOpen(false);
-                  }}
-                  className={`w-full text-left px-4 py-2.5 rounded-xl text-xs font-semibold tracking-wide transition-all ${activeSection === "observation-tool" ? "bg-pink-100 text-pink-700 font-bold border border-pink-200/50" : "text-[#7B6165] hover:text-pink-600 hover:bg-pink-50/50"}`}
-                >
-                  5. Classroom Observation Checklist
                 </button>
 
                 <div className="h-px bg-pink-100/50 my-1" />
@@ -595,7 +532,6 @@ export default function App() {
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-pink-100 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-pink-100/10 rounded-bl-full -z-0" />
                 
-                <span className="text-xs font-mono font-semibold text-[#C29B9F] uppercase tracking-wider block mb-2">1.1. Personal Identity</span>
                 <h3 className="font-serif text-2xl text-[#4A3538] font-semibold leading-snug mb-5">
                   1.1. Teacher Identity
                 </h3>
@@ -620,7 +556,6 @@ export default function App() {
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-pink-100 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-24 h-24 bg-pink-100/10 rounded-bl-full -z-0" />
                 
-                <span className="text-xs font-mono font-semibold text-[#C29B9F] uppercase tracking-wider block mb-2">1.2. Strategic Outlook</span>
                 <h3 className="font-serif text-2xl text-[#4A3538] font-semibold leading-snug mb-5">
                   1.2. Goal for Development
                 </h3>
@@ -684,9 +619,7 @@ export default function App() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 <div className="lg:col-span-4 space-y-4 lg:sticky lg:top-24">
                   <div className="space-y-2">
-                    <span className="font-mono text-pink-500 font-bold text-xs uppercase tracking-widest">Stage 2.1</span>
                     <h3 className="font-serif text-2xl text-[#4A3538] font-bold">2.1. Observation Report</h3>
-                    <p className="text-xs text-stone-500 italic">Insights regarding educator longevity, energetic boundaries, and classroom discipline.</p>
                   </div>
                   
                   {/* Observation Summary card */}
@@ -727,9 +660,7 @@ export default function App() {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 <div className="lg:col-span-4 space-y-4 lg:sticky lg:top-24">
                   <div className="space-y-2">
-                    <span className="font-mono text-pink-500 font-bold text-xs uppercase tracking-widest">Stage 2.2</span>
                     <h3 className="font-serif text-2xl text-[#4A3538] font-bold">2.2. Reflection</h3>
-                    <p className="text-xs text-stone-500 italic">Redefining perfect instructor qualities, emotional investment, and authentic pedagogy styles.</p>
                   </div>
 
                   <div className="bg-pink-100/20 rounded-2xl p-5 border border-dashed border-pink-200 text-center">
@@ -931,9 +862,6 @@ export default function App() {
                 <p className="italic font-serif text-lg text-[#4A3538] font-semibold">
                   “No working environment is completely relaxing, the key point here is which area you can suffer from.”
                 </p>
-                <p className="text-xs text-stone-500 font-sans">
-                  A foundational premise helping pivot out of unrealistic comfort zones into purposeful academic execution.
-                </p>
               </div>
 
               <p>
@@ -961,237 +889,6 @@ export default function App() {
 
         </section>
 
-        {/* SECTION 5: INTERACTIVE CHECKLIST TOOL */}
-        <section id="observation-tool" className="scroll-mt-24 space-y-8 pb-12">
-          
-          <div className="text-center space-y-3">
-            <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-pink-100 text-pink-600 border border-pink-200 mb-2">
-              <ClipboardList size={20} />
-            </div>
-            <span className="block text-xs uppercase tracking-widest text-[#C29B9F] font-mono font-bold">Interactive Tool</span>
-            <h2 className="font-serif text-3xl sm:text-4xl text-[#4A3538] font-semibold leading-tight capitalize">
-              5. Classroom Observation Tool
-            </h2>
-            <p className="text-xs text-stone-500 font-sans max-w-lg mx-auto">An interactive digital companion recreating Lan Nhi's "Tab 5 Classroom Observation Form" from the portfolio.</p>
-            <div className="w-16 h-0.5 bg-pink-300 mx-auto rounded" />
-          </div>
-
-          <div className="bg-white rounded-[32px] border border-pink-100 shadow-xl overflow-hidden print:border-none print:shadow-none">
-            
-            {/* Header Form Controls */}
-            <div className="bg-gradient-to-r from-pink-50/70 to-pink-100/40 p-6 sm:p-8 border-b border-pink-100 space-y-6">
-              
-              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                <div>
-                  <h3 className="font-serif text-xl font-bold text-[#4A3538]">TAB 5: Lesson Observation Record</h3>
-                  <p className="text-xs text-stone-500 mt-1">Form template utilized during classroom diagnostic audits.</p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] uppercase font-mono bg-pink-200/50 text-pink-800 px-3 py-1 rounded-full border border-pink-200">
-                    Live Calculator State
-                  </span>
-                </div>
-              </div>
-
-              {/* Editable Metadata Inputs */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                
-                <div className="space-y-1">
-                  <label htmlFor="observed" className="block text-[11px] font-semibold tracking-wider uppercase text-stone-500">Observed Teacher</label>
-                  <div className="relative">
-                    <User size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-pink-400" />
-                    <input 
-                      id="observed"
-                      type="text" 
-                      value={observedTeacher} 
-                      onChange={(e) => setObservedTeacher(e.target.value)}
-                      className="w-full bg-white border border-pink-200/80 rounded-xl px-9 py-2.5 text-sm text-[#4A3538] focus:outline-none focus:border-pink-500 font-medium"
-                      placeholder="Enter teacher name..."
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-1">
-                  <label htmlFor="observed-class" className="block text-[11px] font-semibold tracking-wider uppercase text-stone-500">Class Label</label>
-                  <div className="relative">
-                    <GraduationCap size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-pink-400" />
-                    <input 
-                      id="observed-class"
-                      type="text" 
-                      value={observedClass} 
-                      onChange={(e) => setObservedClass(e.target.value)}
-                      className="w-full bg-white border border-pink-200/80 rounded-xl px-9 py-2.5 text-sm text-[#4A3538] focus:outline-none focus:border-pink-500 font-medium"
-                      placeholder="Enter class name/age range..."
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-1">
-                  <label htmlFor="date" className="block text-[11px] font-semibold tracking-wider uppercase text-stone-500">Audit Date</label>
-                  <div className="relative">
-                    <Calendar size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-pink-400" />
-                    <input 
-                      id="date"
-                      type="date" 
-                      value={completedDate} 
-                      onChange={(e) => setCompletedDate(e.target.value)}
-                      className="w-full bg-white border border-pink-200/80 rounded-xl px-9 py-2.5 text-sm text-[#4A3538] focus:outline-none focus:border-pink-500 font-medium"
-                    />
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-
-            {/* Checklist Matrix */}
-            <div className="p-6 sm:p-8 space-y-10">
-              
-              {/* CATEGORY 1: CLASSROOM MANAGEMENT */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-2 border-b border-pink-100 pb-3">
-                  <span className="w-7 h-7 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 font-serif text-sm font-bold">1</span>
-                  <h4 className="font-serif text-lg font-bold text-[#4A3538]">1. Classroom Management</h4>
-                </div>
-
-                <div className="overflow-x-auto">
-                  <table className="w-full text-left border-collapse min-w-[500px]">
-                    <thead>
-                      <tr className="border-b border-[#FCE8EB] text-[#7B6165] text-xs font-mono tracking-wider uppercase">
-                        <th className="py-3 px-4 font-semibold w-[60%]">Criteria Points</th>
-                        <th className="py-3 px-4 text-center font-semibold w-[13%]">Yes</th>
-                        <th className="py-3 px-4 text-center font-semibold w-[13%]">Partly</th>
-                        <th className="py-3 px-4 text-center font-semibold w-[13%]">No</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-[#FDF3F5]">
-                      {[
-                        { key: "rules", text: "The teacher established clear classroom rules/routines." },
-                        { key: "effectiveness", text: "The teacher maintained lesson effectiveness without excessive effort." },
-                        { key: "attention", text: "The teacher regained students’ attention efficiently." },
-                        { key: "discipline", text: "The teacher maintained classroom discipline appropriately." },
-                        { key: "signals", text: "The teacher used signals/tools to manage the class." }
-                      ].map((item, idx) => (
-                        <tr key={item.key} className="hover:bg-pink-50/30 transition-colors">
-                          <td className="py-4 px-4 text-sm font-medium text-[#4A3538] font-sans">
-                            {idx + 1}. {item.text}
-                          </td>
-                          {["Yes", "Partly", "No"].map((option) => (
-                            <td key={option} className="py-4 px-4 text-center">
-                              <button 
-                                onClick={() => setCheckboxVal("mgmt", item.key, option as "Yes" | "Partly" | "No")}
-                                aria-label={`Select ${option} for classroom management point ${idx + 1}`}
-                                className={`w-8 h-8 rounded-xl shrink-0 mx-auto border transition-all flex items-center justify-center cursor-pointer ${
-                                  classroomMgmt[item.key] === option 
-                                    ? "bg-pink-600 border-pink-700 text-white shadow-sm shadow-pink-200" 
-                                    : "border-pink-200 bg-white hover:bg-pink-50 text-stone-300"
-                                }`}
-                              >
-                                {classroomMgmt[item.key] === option ? <Check size={14} strokeWidth={3} /> : <span className="text-[9px] font-mono">{option[0]}</span>}
-                              </button>
-                            </td>
-                          ))}
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              {/* CATEGORY 2: STUDENT ENGAGEMENT */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-2 border-b border-pink-100 pb-3">
-                  <span className="w-7 h-7 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 font-serif text-sm font-bold">2</span>
-                  <h4 className="font-serif text-lg font-bold text-[#4A3538]">2. Student Engagement</h4>
-                </div>
-
-                <div className="overflow-x-auto">
-                  <table className="w-full text-left border-collapse min-w-[500px]">
-                    <thead>
-                      <tr className="border-b border-[#FCE8EB] text-[#7B6165] text-xs font-mono tracking-wider uppercase">
-                        <th className="py-3 px-4 font-semibold w-[60%]">Criteria Points</th>
-                        <th className="py-3 px-4 text-center font-semibold w-[13%]">Yes</th>
-                        <th className="py-3 px-4 text-center font-semibold w-[13%]">Partly</th>
-                        <th className="py-3 px-4 text-center font-semibold w-[13%]">No</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-[#FDF3F5]">
-                      {[
-                        { key: "participate", text: "Students actively participated in activities." },
-                        { key: "interested", text: "Students appeared interested and motivated." },
-                        { key: "suitableAge", text: "Activities were suitable for students’ age level." },
-                        { key: "encourage", text: "The teacher encouraged interaction and participation." },
-                        { key: "participateRepeat", text: "Students actively participated in activities." } // Preserved the repeated line exactly as written in Lan Nhi's text
-                      ].map((item, idx) => (
-                        <tr key={item.key} className="hover:bg-pink-50/30 transition-colors">
-                          <td className="py-4 px-4 text-sm font-medium text-[#4A3538] font-sans">
-                            {idx + 1}. {item.text}
-                          </td>
-                          {["Yes", "Partly", "No"].map((option) => (
-                            <td key={option} className="py-4 px-4 text-center">
-                              <button 
-                                onClick={() => setCheckboxVal("engage", item.key, option as "Yes" | "Partly" | "No")}
-                                aria-label={`Select ${option} for student engagement point ${idx + 1}`}
-                                className={`w-8 h-8 rounded-xl shrink-0 mx-auto border transition-all flex items-center justify-center cursor-pointer ${
-                                  studentEngage[item.key] === option 
-                                    ? "bg-pink-600 border-pink-700 text-white shadow-sm shadow-pink-200" 
-                                    : "border-pink-200 bg-white hover:bg-pink-50 text-stone-300"
-                                }`}
-                              >
-                                {studentEngage[item.key] === option ? <Check size={14} strokeWidth={3} /> : <span className="text-[9px] font-mono">{option[0]}</span>}
-                              </button>
-                            </td>
-                          ))}
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              {/* LIVE REPORT METRICS (Dynamic Summary calculated from user checkboxes) */}
-              <div className="bg-gradient-to-tr from-pink-50/50 to-white rounded-2xl p-6 border border-pink-150 border-pink-100 flex flex-col md:flex-row justify-between items-center gap-6">
-                <div className="space-y-1 font-sans text-center md:text-left">
-                  <h4 className="font-serif text-[#4A3538] font-bold">Observation Summary Metrics</h4>
-                  <p className="text-xs text-stone-500 leading-relaxed max-w-md">Calculated scores indicating classroom efficiency and student participation grades.</p>
-                </div>
-                
-                <div className="flex flex-wrap gap-4 justify-center">
-                  <div className="bg-white px-5 py-3.5 rounded-xl border border-pink-100 shadow-sm text-center">
-                    <span className="block text-[9px] uppercase tracking-widest text-stone-400 font-mono">Classroom Score</span>
-                    <span className="font-serif text-lg font-bold text-pink-700">
-                      {Object.values(classroomMgmt).filter(v => v === "Yes").length} / 5 Yes
-                    </span>
-                  </div>
-                  <div className="bg-white px-5 py-3.5 rounded-xl border border-pink-100 shadow-sm text-center">
-                    <span className="block text-[9px] uppercase tracking-widest text-stone-400 font-mono">Engagement Score</span>
-                    <span className="font-serif text-lg font-bold text-pink-700">
-                      {Object.values(studentEngage).filter(v => v === "Yes").length} / 5 Yes
-                    </span>
-                  </div>
-                </div>
-
-                <button 
-                  onClick={handlePrint}
-                  className="px-5 py-2.5 rounded-full bg-pink-700 hover:bg-pink-800 text-white font-medium text-xs tracking-wider flex items-center gap-2 transition-all shadow-md shrink-0"
-                >
-                  <Printer size={13} />
-                  Print Checksheet
-                </button>
-              </div>
-
-              <div className="bg-pink-50/30 rounded-2xl p-4 flex gap-3 items-start text-xs text-[#7B6165] border border-pink-100/60 font-sans lines text-justify leading-relaxed">
-                <Info size={16} className="text-pink-500 shrink-0 mt-0.5" />
-                <p>
-                  * <strong>Verification Directive</strong>: This form is derived entirely from the physical files in Lan Nhi's professional folder. Feel free to use the checkboxes in this interactive simulator to prepare and score real-time class audits for student-teachers.
-                </p>
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
 
       </main>
 
@@ -1240,9 +937,6 @@ export default function App() {
                 <li>
                   <button onClick={() => scrollToSection("reflection")} className="text-stone-500 hover:text-pink-600 transition-colors">4. Reflection</button>
                 </li>
-                <li>
-                  <button onClick={() => scrollToSection("observation-tool")} className="text-stone-500 hover:text-pink-600 transition-colors">5. Observation Checklist</button>
-                </li>
               </ul>
             </div>
 
@@ -1288,9 +982,6 @@ export default function App() {
           <div className="flex flex-col sm:flex-row justify-between items-center text-[11px] text-stone-400 font-mono gap-4 w-full">
             <p className="text-center sm:text-left">
               &copy; {new Date().getFullYear()} Nguyen Thi Lan Nhi. All Rights Reserved. Verbatim Transcription.
-            </p>
-            <p className="text-center sm:text-right">
-              Crafted in AI Studio &bull; Styled with Rose Pastel Gold &bull; React Full SPA
             </p>
           </div>
 
