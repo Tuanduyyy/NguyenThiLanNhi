@@ -154,22 +154,30 @@ export default function App() {
             </p>
 
             {/* Academic Course and Student Details */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 max-w-2xl border border-pink-200 bg-white/60 backdrop-blur-xs p-6 rounded-3xl font-sans text-stone-800 shadow-md">
-              <div className="space-y-1">
-                <span className="block text-xs tracking-wider uppercase font-mono font-extrabold text-pink-750">Course name</span>
-                <span className="text-base font-bold text-[#2D1F21] block leading-snug">Professional Development for Language Teachers</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
+              <div className="bg-gradient-to-br from-white to-pink-50/20 border-2 border-pink-200 p-5 rounded-2xl shadow-sm hover:border-pink-300 transition-all text-left">
+                <span className="block text-[10px] tracking-widest uppercase font-mono font-extrabold text-pink-500">Course name</span>
+                <span className="text-lg sm:text-xl font-serif italic font-extrabold text-[#4A3A3B] block leading-tight mt-1.5">
+                  Professional Development for Language Teachers
+                </span>
               </div>
-              <div className="space-y-1">
-                <span className="block text-xs tracking-wider uppercase font-mono font-extrabold text-pink-750">Student’s Full Name</span>
-                <span className="text-base font-bold text-[#2D1F21] block leading-snug">Nguyen Thi Lan Nhi</span>
+              <div className="bg-gradient-to-br from-white to-pink-50/20 border-2 border-pink-200 p-5 rounded-2xl shadow-sm hover:border-pink-300 transition-all text-left">
+                <span className="block text-[10px] tracking-widest uppercase font-mono font-extrabold text-pink-500">Student’s Full Name</span>
+                <span className="text-lg sm:text-xl font-serif italic font-extrabold text-[#4A3A3B] block leading-tight mt-1.5">
+                  Nguyen Thi Lan Nhi
+                </span>
               </div>
-              <div className="space-y-1">
-                <span className="block text-xs tracking-wider uppercase font-mono font-extrabold text-pink-750">Student ID</span>
-                <span className="text-base font-bold text-[#2D1F21] font-mono block leading-snug">TS.34AM3.HV1083</span>
+              <div className="bg-gradient-to-br from-white to-pink-50/20 border-2 border-pink-200 p-5 rounded-2xl shadow-sm hover:border-pink-300 transition-all text-left">
+                <span className="block text-[10px] tracking-widest uppercase font-mono font-extrabold text-pink-500">Student ID</span>
+                <span className="text-lg sm:text-xl font-serif italic font-extrabold text-[#4A3A3B] block leading-tight mt-1.5">
+                  TS.34AM3.HV1083
+                </span>
               </div>
-              <div className="space-y-1">
-                <span className="block text-xs tracking-wider uppercase font-mono font-extrabold text-pink-750 font-sans">GV (Instructor)</span>
-                <span className="text-base font-bold text-[#2D1F21] block leading-snug">M.A. Ta Huynh Xuan Nghi</span>
+              <div className="bg-gradient-to-br from-white to-pink-50/20 border-2 border-pink-200 p-5 rounded-2xl shadow-sm hover:border-pink-300 transition-all text-left">
+                <span className="block text-[10px] tracking-widest uppercase font-mono font-extrabold text-pink-500">Instructor</span>
+                <span className="text-lg sm:text-xl font-serif italic font-extrabold text-[#4A3A3B] block leading-tight mt-1.5">
+                  Ta Huynh Xuan Nghi
+                </span>
               </div>
             </div>
 
