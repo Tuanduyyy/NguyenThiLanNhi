@@ -284,7 +284,7 @@ export default function App() {
 
       {/* FLOATING / STICKY SUB-NAVBAR MENU */}
       <nav className="sticky top-0 bg-white/95 backdrop-blur-md border-b border-pink-100/50 py-3.5 px-4 z-50 transition-all shadow-md relative">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <div className="max-w-7xl mx-auto flex items-center justify-between lg:justify-center lg:gap-16">
           
           <div 
             onClick={() => {
