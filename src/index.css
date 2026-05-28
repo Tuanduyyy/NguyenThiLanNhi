@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-cinzel: "Cinzel", serif;
+  
+  --color-cream-bg: #FFF9F9;
+  --color-pink-brand-light: #FDF0F1;
+  --color-pink-brand-dark: #4A3A3B;
+  --color-rose-gold: #DDA9AB;
+  
+  /* Artistic Flair Color Mapping Overrides */
+  --color-pink-50: #FFF9F9;
+  --color-pink-100: #F9E1E3;
+  --color-pink-200: #FAD2E1;
+  --color-pink-300: #DDA9AB;
+  --color-pink-400: #C48D8F;
+  --color-pink-500: #A66D70;
+  --color-pink-600: #8E6D6F;
+  --color-pink-700: #8E6D6F;
+  --color-pink-800: #4A3A3B;
+  --color-pink-900: #4A3A3B;
+
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-fade-in-up: fadeInUp 0.8s ease-out forwards;
+
+  /* Custom Artistic Shadows mapped onto Tailwind Defaults */
+  --shadow-sm: 0 2px 4px rgba(253, 226, 228, 0.25);
+  --shadow-md: 0 8px 16px rgba(253, 226, 228, 0.35);
+  --shadow-lg: 0 16px 36px rgba(253, 226, 228, 0.4);
+  --shadow-xl: 0 20px 50px rgba(253, 226, 228, 0.5);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #FFF9F9;
+}
+
+body {
+  color: #5D5757;
+  background-color: #FFF9F9;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+.font-cinzel {
+  font-family: var(--font-cinzel);
+}
+
+/* Custom scrollbar to match theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FFF9F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #F9E1E3;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #DDA9AB;
+}
+
+/* Artistic Flair custom box shadow and styling effects */
+.shadow-artistic {
+  box-shadow: 0 20px 50px rgba(253, 226, 228, 0.4);
+}
+
+.border-artistic {
+  border-color: #F9E1E3;
+}
+
+/* Apply Artistic Flair styling patterns to standard elements globally */
+.bg-white {
+  background-color: #ffffff;
+}
+
+.text-justify p {
+  line-height: 1.8;
+}
+
+input, select, textarea {
+  background-color: #ffffff !important;
+}
+
+/* Perfect print layout rules for window.print() */
+@media print {
+  /* Hide screen-only interactive elements, headers, footers, buttons and graphics */
+  nav,
+  button,
+  .no-print,
+  [role="button"],
+  #back-to-top,
+  .absolute,
+  svg {
+    display: none !important;
+  }
+
+  /* Reset main layouts to fit paper */
+  body, html, .min-h-screen {
+    background: #ffffff !important;
+    color: #111111 !important;
+    font-size: 11pt !important;
+    line-height: 1.6 !important;
+    scroll-behavior: auto !important;
+    overflow: visible !important;
+  }
+
+  main {
+    max-width: 100% !important;
+    padding: 20px !important;
+    margin: 0 !important;
+  }
+
+  /* Keep full structural segments and handle paper page breaks */
+  section {
+    page-break-inside: auto !important;
+    margin-bottom: 30px !important;
+    border: none !important;
+  }
+  
+  h1, h2, h3 {
+    page-break-after: avoid !important;
+    color: #000000 !important;
+  }
+
+  /* Force light backgrounds for elements and hide screen shadows */
+  .bg-white, .bg-pink-100, .bg-pink-50, .bg-cream-bg, .rounded-3xl, .rounded-[32px] {
+    background: #ffffff !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 10px 0 !important;
+  }
+
+  p, span, td, th {
+    color: #222222 !important;
+  }
+
+  /* Ensure tables print properly */
+  table {
+    page-break-inside: avoid !important;
+    border-collapse: collapse !important;
+    width: 100% !important;
+  }
+  
+  th, td {
+    border: 1px solid #dddddd !important;
+    padding: 8px !important;
+  }
+}
+
+
+
