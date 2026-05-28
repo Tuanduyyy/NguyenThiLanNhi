@@ -757,8 +757,6 @@ export default function App() {
                 </p>
                 <p>
                   Regarding the design of the workshop, the session was logically organized and covered a wide range of classroom activities. There were six activities introduced in total, and each was useful for different language skills and aspects. It was also useful that a teacher can apply for various learning styles and ages.
-                </p>
-                <p>
                   For example, for the warm-up stage, a teacher can use a variety of icebreakers such as <strong className="font-medium text-[#4A3538]">“Line Up,” “Two Truths and a Lie,”</strong> and <strong className="font-medium text-[#4A3538]">“What is Your Strangest Talent?”</strong> which effectively created a comfortable and energetic learning atmosphere. These activities also demonstrated how teachers can encourage communication and reduce learners’ anxiety at the beginning of lessons.
                 </p>
                 <p>
@@ -772,8 +770,7 @@ export default function App() {
                 </p>
                 <p>
                   Most importantly, the workshop was particularly meaningful for me because it addressed one of the most challenging parts that I am currently worrying about as a beginning teacher. Since I still lack practical teaching experience, I often struggle to find suitable classroom activities and effective ways to maintain students’ engagement during lessons.
-                </p>
-                <p>
+                
                   Therefore, the workshop provided me with many practical activity ideas that I may use in my future classrooms to create a more active and communicative learning environment. Most activities can be adapted to different age groups, proficiency levels, and lesson objectives. 
                 </p>
                 <p className="font-medium text-pink-700">
