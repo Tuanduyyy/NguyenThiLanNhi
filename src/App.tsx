@@ -150,7 +150,7 @@ export default function App() {
             
             {/* Short highlight statement */}
             <p className="text-[#4E3639] text-lg sm:text-xl max-w-2xl font-normal leading-relaxed font-sans">
-              Welcome to the professional portfolio of <strong className="font-bold text-[#2D1F21]">Nguyễn Thị Lan Nhi</strong>.
+              Welcome to the professional portfolio of <strong className="font-bold text-[#2D1F21]">Nguyen Thi Lan Nhi</strong>.
             </p>
 
             {/* Academic Course and Student Details */}
@@ -269,15 +269,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto w-full flex justify-between items-center text-xs uppercase tracking-wider text-stone-600 font-bold z-10">
           <div className="flex gap-4 items-center">
             <span className="w-12 h-[1px] bg-pink-300" />
-            <span>AI Studio Dev Preview 2026</span>
           </div>
-          <button 
-            onClick={() => scrollToSection("profile")}
-            className="flex items-center gap-2 hover:text-[#2D1F21] transition-colors"
-          >
-            Scroll Down
-            <ChevronRight size={12} className="rotate-90 text-[#2D1F21]" />
-          </button>
         </div>
 
       </header>
@@ -437,7 +429,6 @@ export default function App() {
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-pink-100 text-pink-600 border border-pink-200 mb-2">
               <User size={20} />
             </div>
-            <span className="block text-sm uppercase tracking-widest text-[#8C6D71] font-mono font-extrabold">Section 1</span>
             <h2 className="font-serif text-3xl sm:text-4xl text-[#2D1F21] font-bold leading-tight capitalize">
               1. Professional Profile
             </h2>
@@ -583,7 +574,6 @@ export default function App() {
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-pink-100 text-pink-600 border border-pink-200 mb-2">
               <Compass size={20} />
             </div>
-            <span className="block text-sm uppercase tracking-widest text-[#8C6D71] font-mono font-extrabold">Section 2</span>
             <h2 className="font-serif text-3xl sm:text-4xl text-[#2D1F21] font-bold leading-tight capitalize">
               2. Development Process
             </h2>
@@ -705,7 +695,6 @@ export default function App() {
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-pink-100 text-pink-600 border border-pink-200 mb-2">
               <Calendar size={20} />
             </div>
-            <span className="block text-sm uppercase tracking-widest text-[#8C6D71] font-mono font-extrabold">Section 3</span>
             <h2 className="font-serif text-3xl sm:text-4xl text-[#2D1F21] font-bold leading-tight capitalize">
               3. Workshop Evaluation
             </h2>
@@ -818,7 +807,6 @@ export default function App() {
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-pink-100 text-pink-600 border border-pink-200 mb-2">
               <Award size={20} />
             </div>
-            <span className="block text-sm uppercase tracking-widest text-[#8C6D71] font-mono font-extrabold">Section 4</span>
             <h2 className="font-serif text-3xl sm:text-4xl text-[#2D1F21] font-bold leading-tight capitalize">
               4. Overall Course Reflection
             </h2>
@@ -928,9 +916,6 @@ export default function App() {
 
           {/* Absolute Bottom Copy section */}
           <div className="flex flex-col sm:flex-row justify-between items-center text-xs text-stone-600 font-bold font-mono gap-4 w-full">
-            <p className="text-center sm:text-left">
-              &copy; {new Date().getFullYear()} Nguyen Thi Lan Nhi. All Rights Reserved. Verbatim Transcription.
-            </p>
           </div>
 
         </div>
